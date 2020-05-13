@@ -1,5 +1,7 @@
 # mongodb-gcs-backup
 
+__✅ Tested with Helm 3__
+
 This project aims to provide a simple way to perform a MongoDB server/db backup using `mongo-tools` and to upload it to Google Cloud Storage. It was greatly inspired from [`takemetour/docker-mongodb-gcs-backup`](https://github.com/takemetour/docker-mongodb-gcs-backup).
 
 We provide a kubernetes support thanks to the helm chart located in the `chart` folder of this repository.
@@ -9,7 +11,7 @@ We provide a kubernetes support thanks to the helm chart located in the `chart` 
 
 You can pull the public image from Docker Hub:
 
-    docker pull zoov/mongodb-gcs-backup:latest
+    docker pull hendrik44/mongodb-gcs-backup:latest
 
 
 ### Configuration
