@@ -1,8 +1,9 @@
 image:
-  repository: zoov/mongodb-gcs-backup
+  repository: hendrik44/mongodb-gcs-backup
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
+namespace: default
 resources: {}
 #  limits:
 #    cpu: 100m
