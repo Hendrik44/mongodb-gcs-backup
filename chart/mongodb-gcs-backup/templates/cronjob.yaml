@@ -2,6 +2,7 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: {{ template "mongodb-gcs-backup.fullname" . }}
+  namespace: {{ .Values.namespace }}
   labels:
     app: {{ template "mongodb-gcs-backup.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
@@ -10,7 +11,7 @@ metadata:
 spec:
   concurrencyPolicy: {{ .Values.concurrencyPolicy }}
   failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
-  schedule: {{ .Values.schedule }}
+  schedule: "{{ .Values.schedule }}"
   successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
   jobTemplate:
     spec:
