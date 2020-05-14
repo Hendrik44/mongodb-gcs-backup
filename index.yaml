@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  mongodb-gcs-backup:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2020-05-14T23:03:14.367899+02:00"
+    description: mongodb google cloud storage backup helm chart
+    digest: ae4da388080776c8d2b7663d73276639159a133055b25311fa4a927d66a759c5
+    name: mongodb-gcs-backup
+    type: application
+    urls:
+    - https://hendrik44.github.io/mongodb-gcs-backup/mongodb-gcs-backup-0.2.0.tgz
+    version: 0.2.0
+generated: "2020-05-14T23:03:14.367503+02:00"
