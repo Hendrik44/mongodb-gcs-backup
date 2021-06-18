@@ -23,6 +23,7 @@ SLACK_USERNAME=${SLACK_USERNAME:-}
 SLACK_ICON=${SLACK_ICON:-}
 
 gsutil -v
+mongo --version
 
 backup() {
   mkdir -p $BACKUP_DIR
@@ -35,19 +36,13 @@ backup() {
     cmd_auth_part="--username=\"$MONGODB_USER\" --password=\"$MONGODB_PASSWORD\""
   fi
 
-  cmd_db_part=""
-  if [[ ! -z $MONGODB_DB ]]
-  then
-    cmd_db_part="--db=\"$MONGODB_DB\""
-  fi
-
   cmd_oplog_part=""
   if [[ $MONGODB_OPLOG = "true" ]]
   then
     cmd_oplog_part="--oplog"
   fi
 
-  cmd="mongodump --host=\"$MONGODB_HOST\" --port=\"$MONGODB_PORT\" $cmd_auth_part $cmd_db_part $cmd_oplog_part --gzip --archive=$BACKUP_DIR/$archive_name"
+  cmd="mongodump $cmd_auth_part --host=\"$MONGODB_HOST\" --port=\"$MONGODB_PORT\" $cmd_oplog_part --authenticationDatabase=admin --gzip --archive=$BACKUP_DIR/$archive_name"
   echo "starting to backup MongoDB host=$MONGODB_HOST port=$MONGODB_PORT"
   eval "$cmd"
 }

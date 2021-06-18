@@ -1,4 +1,4 @@
-FROM mongo:latest
+FROM mongo:4.2.14-bionic
 
 RUN apt-get update && apt-get install -y \
   bash \
